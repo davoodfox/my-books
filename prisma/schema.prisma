@@ -29,15 +29,45 @@ model Post {
 }
 
 model Book {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
-  description String
-  author      Author @relation(fields: [authorId], references: [id])
-  authorId    Int
+  publishYaer Int?
+  description String?
+  coverImage  String?
+  authors     Author[]
+  genres      Genre[]
+  tags        Tag[]
+  rating      Rating?  @relation(fields: [ratingValue], references: [value])
+  ratingValue Float?
 }
 
 model Author {
-  id    Int    @id @default(autoincrement())
-  name  String
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  coverImage  String?
+  books       Book[]
+  tags        Tag[]
+  genres      Genre[]
+}
+
+model Genre {
+  id      Int      @id @default(autoincrement())
+  name    String
+  books   Book[]
+  authors Author[]
+}
+
+model Tag {
+  id      Int      @id @default(autoincrement())
+  name    String
+  books   Book[]
+  authors Author[]
+}
+
+model Rating {
+  id    Int     @id @default(autoincrement())
+  value Float?  @unique
+  color String? @unique
   books Book[]
 }
