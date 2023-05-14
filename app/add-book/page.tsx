@@ -1,8 +1,5 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import { PrismaClient } from "@prisma/client";
-import SelectAuthor from "@/components/SelectAuthor";
-import type { Author } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -16,22 +13,23 @@ async function getAuthors() {
 
 export default async function Page() {
   const authors = await getAuthors();
-  async function addItem(data: FormData) {
-    "use server";
-    const authorId = Number(data.get("authorId"));
+  // async function addItem(data: FormData) {
+  //   "use server";
+  //   const authorId = Number(data.get("authorId"));
 
-    // Create one Book
-    const Book = await prisma.book.create({
-      data: {
-        title: data.get("title") as string,
-        description: data.get("description") as string,
-        authorId: authorId,
-      },
-    });
-  }
+  //   // Create one Book
+  //   const Book = await prisma.book.create({
+  //     data: {
+  //       title: data.get("title") as string,
+  //       description: data.get("description") as string,
+  //       authorId: authorId,
+  //     },
+  //   });
+  // }
 
   return (
-    <form action={addItem}>
+    // <form action={addItem}>
+    <form>
       <input
         type="text"
         name="title"
@@ -42,7 +40,6 @@ export default async function Page() {
         name="description"
         className="border border-gray-300 rounded-lg py-4 px-4 text-base font-normal text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
       />
-      {/* <SelectAuthor authors={authors} /> */}
       <select name="authorId">
         {authors.map((author) => (
           <option key={author.id} value={author.id}>

@@ -4,16 +4,17 @@ const prisma = new PrismaClient();
 
 function Page(props: Props) {
   const {} = props;
-  async function addAuthor(data: FormData) {
-    "use server";
-    await prisma.author.create({
-      data: {
-        name: data.get("name") as string,
-      },
-    });
-  }
+  // async function addAuthor(data: FormData) {
+  //   "use server";
+  //   await prisma.author.create({
+  //     data: {
+  //       name: data.get("name") as string,
+  //     },
+  //   });
+  // }
   return (
-    <form action={addAuthor}>
+    // <form action={addAuthor}>
+    <form>
       <input
         type="text"
         name="name"
