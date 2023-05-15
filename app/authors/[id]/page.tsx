@@ -25,7 +25,7 @@ async function Page({ params: { id } }: { params: { id: number } }) {
         {author.books && (
           <ul className="flex justify-center flex-wrap gap-3 m-3">
             {author.books.map((book) => (
-              <BookCard book={book} authors={null} />
+              <BookCard key={book.id} book={book} authors={null} />
             ))}
           </ul>
         )}
