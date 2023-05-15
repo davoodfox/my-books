@@ -13,6 +13,10 @@ module.exports = {
         enriqueta: ["Enriqueta", "sans-serif"],
       },
     },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
   },
   plugins: [],
 };

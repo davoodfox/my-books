@@ -1,18 +1,5 @@
-import { Inter } from "next/font/google";
-import { PrismaClient } from "@prisma/client";
-import type { Book } from "@prisma/client";
 import Link from "next/link";
-import Image from "next/image";
-
-const prisma = new PrismaClient();
-
-const inter = Inter({ subsets: ["latin"] });
-
-async function getAuthors() {
-  // Get all authors
-  const authors = await prisma.author.findMany();
-  return authors;
-}
+import { getAuthors } from "@/services/author";
 
 export default async function Page() {
   const authors = await getAuthors();

@@ -16,12 +16,5 @@ async function getAuthors() {
 }
 
 export default async function Home() {
-  return (
-    <>
-      <Link href="/add-author">Add Author</Link>
-      <Link href="/add-book">Add Book</Link>
-      <Link href="/books">Books</Link>
-      <Link href="/authors">Authors</Link>
-    </>
-  );
+  return <></>;
 }
