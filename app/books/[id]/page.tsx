@@ -49,13 +49,13 @@ async function Page({ params: { id } }: { params: { id: number } }) {
           </h2>
           <h2 className="px-1 text-base mb-3">
             {book.authors.map((author, index) => (
-              <Link href={`/authors/${author.id}`}>
-                <span>
+              <span key={author.id}>
+                <Link href={`/authors/${author.id}`}>
                   {index + 1 == book.authors.length
                     ? author.name
                     : ", " + author.name}
-                </span>
-              </Link>
+                </Link>
+              </span>
             ))}
           </h2>
         </div>

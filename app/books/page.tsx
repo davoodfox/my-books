@@ -43,13 +43,13 @@ export default async function Page() {
             </Link>
             <h2 className="px-1 text-lg whitespace-nowrap overflow-hidden text-ellipsis text-gray-500">
               {book.authors.map((author, index) => (
-                <Link href={`/authors/${author.id}`}>
-                  <span>
+                <span key={author.id}>
+                  <Link href={`/authors/${author.id}`}>
                     {index + 1 == book.authors.length
                       ? author.name
                       : ", " + author.name}
-                  </span>
-                </Link>
+                  </Link>
+                </span>
               ))}
             </h2>
           </li>
