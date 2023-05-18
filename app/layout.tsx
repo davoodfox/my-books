@@ -31,6 +31,11 @@ export default function RootLayout({
                 Books
               </Link>
             </li>
+            <li>
+              <Link className="hover:text-white" href="/genres">
+                Genres
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="px-4 sm:px-16 md:px-32 lg:px-72 py-3">{children}</div>
