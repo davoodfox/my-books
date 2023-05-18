@@ -43,7 +43,9 @@ function Tabs({
           )}
         >
           {content.books.map((book) => (
-            <Link href={`/books/${book.id}`}>{book.title}</Link>
+            <Link key={book.id} href={`/books/${book.id}`}>
+              {book.title}
+            </Link>
           ))}
         </Tab.Panel>
         <Tab.Panel
@@ -53,7 +55,9 @@ function Tabs({
           )}
         >
           {content.books.map((book) => (
-            <Link href={`/animes/${book.id}`}>{book.title}</Link>
+            <Link key={book.id} href={`/animes/${book.id}`}>
+              {book.title}
+            </Link>
           ))}
         </Tab.Panel>
       </Tab.Panels>

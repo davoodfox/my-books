@@ -8,7 +8,7 @@ async function Page({ params: { id } }: { params: { id: number } }) {
   const genre = await getGenre(Number(id), {
     books: true,
   });
-
+  console.log(genre);
   if (genre)
     return (
       <div className="mt-3">

@@ -10,7 +10,9 @@ export default async function Page() {
       <h2 className="text-xl font-bold mb-3">Books</h2>
       <ul className="flex justify-center flex-wrap gap-3 m-3">
         {genres.map((genre) => (
-          <Link href={`/genres/${genre.id}`}>{genre.name}</Link>
+          <Link key={genre.id} href={`/genres/${genre.id}`}>
+            {genre.name}
+          </Link>
         ))}
       </ul>
     </>
